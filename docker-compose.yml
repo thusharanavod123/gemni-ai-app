@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000" # Assuming your app runs on port 3000
+    volumes:
+      - .:/app
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY} # Securely pass your API key
+    # Add other environment variables as needed
+    # depends_on:
+    #  - other_services # Add if you have other services
+
+  # Add other services like database, if needed
+  # db:
+  #  image: postgres:latest
+  #  ...
